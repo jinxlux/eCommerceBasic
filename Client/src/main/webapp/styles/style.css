@@ -1,0 +1,475 @@
+body {
+	background: #FFFF;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	
+}
+
+
+
+
+
+nav {
+	width: 80%;
+	position: absolute;
+	display: inline;
+	height:4vw%;
+	top:2vw;
+	left:0.5vw;
+
+}
+
+ul {
+    list-style-type: none;
+    display: inline;
+    left: 0;
+    top: 0;
+    padding: 0;
+    overflow: hidden;
+    
+}
+
+
+
+.menu-item {
+	position:relative;
+	font-family: "Eusthalia Sans Slant";
+	font-size:1.25vw;
+	margin-left: 2vw;
+    float: left;
+    text-align: left;
+    z-index: 1;
+}
+
+.menu-item::after {
+  position: absolute;
+  bottom: -10%;
+  height: 40%;
+  content: '';
+
+  left: -10%; 
+  width: 120%;
+  z-index: -1;
+}
+
+
+.menu-item a {
+    text-decoration: none;
+    color:#300306;
+    color:white;
+}
+
+.menu-item a:hover::after {
+  position: absolute;
+  bottom: -22%;
+  height: 40%;
+  
+  content: '';
+  background-color:white;
+  left: -10%; 
+  width: 120%;
+  z-index: 0;
+}
+
+
+
+
+
+
+#header-banner-home {
+	position: relative;
+	display: inline-block;
+	float:left;
+	background-image:url("../images/banner1.png");
+	background-size: 100% 100%;
+	width:100vw;
+	height:60vw;
+	left:0%;
+	top:0vw;
+	text-align: center;
+}
+
+
+
+	
+
+
+
+.menu-item-cart-underline {
+	position: absolute;
+	top:3.85vw;
+	left: 96.5vw;
+	width:2.6vw;
+	height:0.75vw;
+	z-index=0;
+}
+
+.menu-item-cart {
+	position:absolute;
+	top:2.4vw;
+	left: 97vw;
+	width:1.75vw;
+	height:2vw;
+	background-image: url("../images/cart1.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	z-index:1;
+	color:white;
+}
+
+
+#cart {
+	display:  inline;
+	
+}
+
+.clearboth {
+	clear: both;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+.feature1 {
+   text-align: center;
+   margin-top: 15%; /*leave or not?*/
+ 
+   
+}
+
+.feature-text1 {
+   position: relative;
+   display: inline;
+   font-size:10vw;
+   color:black;
+   
+}
+
+
+	
+.feature-text1::after{
+  position: absolute;
+  bottom: -9%;
+  height: 6%;
+  content: '  ';
+  background-color: black;
+  left: -10%; /* offset the left to account for half of the extended length (10% / 2) */
+  width: 120%; /* extend the length a little bit */
+  z-index: -1;
+  color:black;
+}
+
+
+
+.big-display-right {
+    position: relative;
+	width: 78vw;
+	margin-top: 16vw;
+	left: 22vw;
+	height:24vw;
+	font-size: 3vw;
+	background-color: white;
+	
+} 
+
+
+.display-right-img-l {
+	position: absolute;
+	bottom:5vw;
+	left:-15vw;
+	width:25vw;
+	}
+	
+
+.big-display-right-line-1 {
+	position: absolute;
+	font-size:1.75vw;
+	top: 6vw;
+	left: 19vw;
+
+}
+
+.big-display-right-line-2 {
+	position: absolute;
+	font-size:4.3vw;
+	top: 9vw;
+	left: 19vw;
+	z-index:0;
+	
+}
+
+.big-display-right-line-2::after{
+  position: absolute;
+  bottom:-3%;
+  height: 20%;
+  content: '';
+  background-color: black;
+  left: -1.5%; 
+  width: 103%;
+  z-index: -1;
+}
+
+
+.big-display-right-line-3 {
+	position: absolute;
+	font-size:1.75vw;
+	top: 18vw;
+	left: 57vw;
+	z-index:3;
+	
+}
+
+.big-display-right-line-3::after{
+  position: absolute;
+  bottom:-30%;
+  height: 20%;
+  content: '';
+  background-color: black;
+  left: -1.5%; /* offset the left to account for half of the extended length (10% / 2) */
+  width: 103%; /* extend the length a little bit */
+  z-index: -1;
+}
+
+
+#footer {
+    float: left;
+    margin: auto;
+    margin-top: 50px;
+    background-color: black;
+    width: 100%;
+    color: white;
+}
+
+#footer p:nth-child(1) {
+    /*width: 250px;*/
+    height: 30px;
+    margin-top: 20px;
+    /*margin-left: 70px;*/
+    /*margin-right: 70px;*/
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: "Eusthalia Sans Slant";
+    font-size: 10px;
+    text-align: left;
+    float: left;
+}
+
+#footer p:nth-child(2) {
+    /*width: 250px;*/
+    height: 30px;
+    margin-top: 20px;
+    /*margin-left: 70px;*/
+    /*margin-right: 70px;*/
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: "Eusthalia Sans Slant";
+    font-size: 10px;
+    text-align: right;
+    float: right;
+}
+
+#footer p:nth-child(3) {
+    float: left;
+    /*width: 250px;*/
+    /*margin-left: 70px;*/
+    /*margin-right: 70px;*/
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: "Eusthalia Sans Slant";
+    font-size: 10px;
+    text-align: left;
+}
+
+#footer p:nth-child(4) {
+    /*width: 250px;*/
+    /*margin-left: 70px;*/
+    /*margin-right: 70px;*/
+    width: 30%;
+    margin-left: 5%;
+    margin-right: 5%;
+    font-family: "Lato Light";
+    font-size: 10px;
+    text-align: right;
+    float: right;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.header-banner {
+	position: relative;
+	background-image: url("../images/banners/header-banner-home.jpg");
+	background-size: 100% auto;
+	background-repeat: no-repeat;
+	background-position: center top;
+	background-color: black;
+	text-align: center;
+}
+
+
+.banner-text-heading {
+   color: #FFFFFF;
+   font-size: 40pt;
+  
+}
+
+
+.banner-text {
+    color: #FFFFFF; 
+    padding-top: 2.5%;
+    padding-bottom: 2%;
+    font-size: 16pt;
+}
+
+
+
+
+
+
+
+
+
+
+
+#span-two {
+    display: inline-block;
+    line-height: 0em;
+    padding-bottom: 0.6em;
+  
+
+}
+
+#menu {
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    float: left;
+}
+
+
+#menu p {
+    display: inline-block;
+    
+}
+
+
+#items {
+    width: 100%;
+    border-bottom: 2px solid black;
+    display: inline-block;
+}
+
+.item {
+    width: 100%;
+    display: inline-block;
+    margin: auto;
+    font-family: "Eusthalia Sans Slant";
+    position: relative;
+}
+
+.item div:nth-child(1) {
+    float: left;
+    width: 40%;
+    margin: auto;
+    text-align: left;
+}
+
+.item div:nth-child(2) {
+    float: left;
+    width: 40%;
+    margin: auto;
+}
+
+.item div:nth-child(3) {
+    float: left;
+    width: 20%;
+    margin: auto;
+}
+
+.item button {
+    position: absolute;
+    right: -6%;
+    top: 2%;
+    background-color: black;
+    text-align: center;
+    font-size: 2vw;
+    color: white;
+    width: 2.4vw;
+    max-width: 24px;
+    min-width: 16px;
+    height: 2.4vw;
+    max-height: 24px;
+    min-height: 16px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+#totalPrice {
+    float: right;
+    width: 38%;
+    margin-left: 50%;
+    padding-left: 2%;
+    padding-right: 10%;
+    background-color: ;
+   
+}
+
+#totalPrice p:nth-child(1) {
+    float: left;
+    width: 70%;
+}
+
+#totalPrice p:nth-child(2) {
+    float: right;
+    width: 20%
+}
+
+#totalPrice p:nth-child(5) {
+    float: left;
+    width: 70%;
+}
+
+#totalPrice p:nth-child(6) {
+    float: right;
+    width: 20%
+}
+
+#totalPrice div {
+    float: left;
+    width: 100%;
+    border-bottom: 1px solid black;
+}

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+
+
+<script>
+
+$(document).ready(selection("0~500","0~15","all"));
+
+
+function select(){
+	  var mySelect = document.getElementById("selectorb");
+	  var index = mySelect.selectedIndex;
+	  var brand = mySelect.options[index].text;
+	 
+	  var mySelect = document.getElementById("selectorp");
+	  var index = mySelect.selectedIndex;
+	  var priceRange = mySelect.options[index].text;
+	  
+	  var mySelect = document.getElementById("selectors");
+	  var index = mySelect.selectedIndex;
+	  var sizeRange = mySelect.options[index].text;
+	  
+	  selection(priceRange,sizeRange,brand);
+}
+
+
+function selection(priceRange,sizeRange, brand){
+	imageS = "";
+	buttons = "";
+	buttonsad = "";
+	$.ajax({  
+	    url:"webapi/shoes/shoeall/"+ priceRange +"/"+ sizeRange + "/" + brand,  
+	    type:'GET',  
+	    dataType:'json',  
+	    success:function(images){ 
+	    	$.each(images, function(i, image){
+	    		buttons = "<button class="+image.brand+image.id+' type="button">'+ "Add to cart</button>"
+	    		buttonsad = "<button class="+image.brand+image.id+' type="button">'+ "collect</button>"
+	    		imageS += "<img class="+image.brand+image.id+' src="'+image.photo +'">' + buttons + buttonsad;
+	    	});
+	    	document.getElementById("images").innerHTML = imageS;
+	    	handlebuttons()
+	    },  
+	    error:function(XMLHttpRequest, textStatus, errorThrown){
+	    	alert("error");
+	        switch(XMLHttpRequest.status){  
+	            case 401:  
+	                break;  
+	            case 404:  
+	                break;  
+	            case 500:  
+	                break;  
+	        }  
+	    }  
+	});
+}
+
+function handlebuttons(){
+    $("button").click(function() {
+        var value = $(this).attr("class"); 
+        alert(value);
+    });
+}
+
+</script>
+
+<body>
+
+<p><select id="selectorb" onchange = "select()">
+	<option> all </option>
+	<option> NIKE </option>
+	<option> Addi </option>
+</select>
+<p><select id="selectorp" onchange = "select()">
+	<option> 0~500 </option>
+	<option> 0~50 </option>
+	<option> 50~100 </option>
+	<option> 100~150 </option>
+	<option> 150~200 </option>
+	<option> 200~250 </option>
+	<option> 250~300 </option>
+	<option> 300~350 </option>
+	<option> 350~400 </option>
+	<option> 400~450 </option>
+	<option> 450~500 </option>
+</select> 
+<p><select id="selectors" onchange = "select()">
+	<option> 0~15 </option>
+	<option> 0~8 </option>
+	<option> 8~12 </option>
+	<option> 12~15 </option>
+</select> 
+
+
+
+
+<div id="images">
+</div>
+</body>
+</html>

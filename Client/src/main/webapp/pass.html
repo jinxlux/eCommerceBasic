@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>S&Sneakers</title>
+    <link rel=stylesheet type="text/css" href="./styles/style.css">
+    <script src="https://apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="./scripts/script.js"></script>
+</head>   
+
+<script>
+
+$(document).ready(selection("0~500","0~15","all"));
+
+
+function select(){
+	  var mySelect = document.getElementById("selectorb");
+	  var index = mySelect.selectedIndex;
+	  var brand = mySelect.options[index].text;
+	 
+	  var mySelect = document.getElementById("selectorp");
+	  var index = mySelect.selectedIndex;
+	  var priceRange = mySelect.options[index].text;
+	  
+	  var mySelect = document.getElementById("selectors");
+	  var index = mySelect.selectedIndex;
+	  var sizeRange = mySelect.options[index].text;
+	  
+	  selection(priceRange,sizeRange,brand);
+}
+
+
+function selection(priceRange,sizeRange, brand){
+	imageS = "";
+	buttons = "";
+	$.ajax({  
+	    url:"webapi/shoes/shoeall/"+ priceRange +"/"+ sizeRange + "/" + brand,  
+	    type:'GET',  
+	    dataType:'json',  
+	    success:function(images){ 
+	    	$.each(images, function(i, image){
+	    		buttons = '<button class = "shop'+image.brand+image.id + '"' + " id = " + image.id +' type="button">'+ "Add to cart</button>";
+	    		imageS += "<img class="+image.brand+image.id+' src="'+image.photo +'">' + buttons;
+	    	});
+	    	document.getElementById("images").innerHTML = imageS;
+	    	handlebuttons()
+	    },  
+	    error:function(XMLHttpRequest, textStatus, errorThrown){
+	    	alert("error");
+	        switch(XMLHttpRequest.status){  
+	            case 401:  
+	                break;  
+	            case 404:  
+	                break;  
+	            case 500:  
+	                break;  
+	        }  
+	    }  
+	});
+}
+
+function handlebuttons(){
+    $("button").click(function() {
+        var value = $(this).attr("id"); 
+        alert("Poriduct ID = "+ value + " is added in Car");
+    });
+}
+
+</script>
+
+
+<body>
+    <div class= header-banner-container>
+        	
+        	
+        	
+            <nav>
+                <ul>
+  					<li class="menu-item"><a href="index.html">Home</a></li>
+  					<li class="menu-item"><a href="shop.html">Shop</a></li>
+  					<li class="menu-item"><a href="contact.html">Contact</a></li>
+		  		</ul>
+            </nav>
+           
+            </div>
+            
+            
+            <div class="header-banner">
+      		  <div class="banner-text-heading">&nbsp<br>S&Sneakers<br>Shop</div>
+		      
+      		 
+      	 <a href="cart.html">
+                <div class=menu-item-cart-underline></div>
+                <div class=menu-item-cart></div>
+            </a>
+   		</div> <!-- end of .header-banner -->
+            
+            
+            <div id=header-banner-home>
+            <div class="header-banner-text-home">
+              
+               
+            </div>
+             
+        </div>
+       
+  
+       
+    
+    
+    <div class="feature1">
+   		<div><span class="feature-text1">Our Products</span></div>
+   		
+	<p><select id="selectorb" onchange = "select()">
+	<option> all </option>
+	<option> nike </option>
+	<option> addiidas </option>
+	</select>
+    
+    <select id="selectorp" onchange = "select()">
+	<option> 0~500 </option>
+	<option> 0~50 </option>
+	<option> 50~100 </option>
+	<option> 100~150 </option>
+	<option> 150~200 </option>
+	<option> 200~250 </option>
+	<option> 250~300 </option>
+	<option> 300~350 </option>
+	<option> 350~400 </option>
+	<option> 400~450 </option>
+	<option> 450~500 </option>
+	</select>
+ 
+	<select id="selectors" onchange = "select()">
+	<option> 0~15 </option>
+	<option> 0~5 </option>
+	<option> 5~10 </option>
+	<option> 10~15 </option>
+	</select> 	
+	</div> 
+    
+    
+    
+	<div id="images">
+	<img class=addidas1 src="images/product4.jpeg">
+	<button class="shopaddidas1" type="button" onclick="alert('Hello world!')">Added to cart</button>
+	
+	<img class=addidas2 src="images/product5.jpeg">
+	<button class="shopaddidas2" type="button" onclick="alert('Hello world!')">Added to cart</button>
+	
+	<img class=nike3 src="images/product6.jpeg">
+	<button class="shopnike3" type="button" onclick="alert('Hello world!')">Added to cart</button>
+
+	<img class=nike4 src="images/product7.jpeg">
+	<button class="shopnike4" type="button" onclick="alert('Hello world!')">Added to cart</button>
+	</div>
+	
+		 <div id="footer">
+                <p>&#169 S&Sneakers</p>
+                <p>PHOTOGRAPHY BY</p>
+                <p>xxx-xxx Cres<br>SASKATOON. SK</p>
+                <p>Google Image<br>Sneakers</p>
+            </div>
+	
+	
+
+   
+    	
+</body>
+    
+</html>
+
+
+
+
+
+
+
+<style>
+
+.feature1{
+    position: relative;
+    bottom:1vw;
+	
+}
+
+
+#footer{
+	position: absolute;
+	bottom:-120vw;
+	width:100vw;
+	
+}
+
+
+.nike3{
+	
+	bottom:-80vw;
+	right:55vw;
+	width:30vw;
+}
+.nike4{
+
+	bottom:-80vw;
+	right:18vw;
+	width:30vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.addidas1{
+
+	bottom:-40vw;
+	right:55vw;
+	width:30vw;
+}	
+.addidas2{
+
+	bottom:-40vw;
+	right:21vw;
+	width:30vw;
+}
+	
+
+	
+.shopaddidas1{
+	background-color:brown;
+	color: white;
+
+	bottom:-56vw;
+	right:60vw;
+	height:5vw;
+	width:15vw;
+	font-size:2vw;
+}
+
+.shopaddidas2{
+	background-color:brown;
+	color: white;
+
+	bottom:-56vw;
+	right:25vw;
+	height:5vw;
+	width:15vw;
+	font-size:2vw;
+}
+
+.shopnike3{
+	background-color:brown;
+	color: white;
+
+	bottom:-96vw;
+	right:60vw;
+	height:5vw;
+	width:15vw;
+	font-size:2vw;
+}
+
+.shopnike4{
+	background-color:brown;
+	color: white;
+
+	bottom:-96vw;
+	right:25vw;
+	height:5vw;
+	width:15vw;
+	font-size:2vw;
+}
+
+
+
+</style>
