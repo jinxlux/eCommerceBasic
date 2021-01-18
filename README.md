@@ -1,8 +1,8 @@
 # eCommerceBasic
-this is the eCommerce web project followed RESTful design pattern. 
-Main backend language : Java   
-Main front language: html/js/css   
-Technology which help to dynamically generat web pages: Jsp
+> This is the eCommerce web project followed RESTful design pattern. 
+> + Main backend language : Java   
+> + Main front language: html/js/css   
+> + Technology which help to dynamically generat web pages: Jsp
 
 ## Framework
 > Eclipse Jersey   
